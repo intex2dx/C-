@@ -12,4 +12,5 @@ int main(){
         a = r;
     }
     cout << (m*n/a) << endl;
+    return 0;
 }
