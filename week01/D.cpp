@@ -12,4 +12,5 @@ int main(){
         a = r;
     }
     cout << a << endl;
+    return 0;
 }
