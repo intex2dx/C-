@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int recursive_power(int base, int power){
+long int recursive_power(int base, int power){
     if (power == 1) return base;
     else if (power == 0) return 1;
     else return base * recursive_power(base, power - 1);
