@@ -1,7 +1,7 @@
 #include <iostream>
 
 #ifndef N
-#define N 2  // actual size of the array
+#define N 6  // actual size of the array
 #endif
 
 void swap(int& lha, int&rha){

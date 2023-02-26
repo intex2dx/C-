@@ -1,7 +1,7 @@
 #include <iostream>
 
 #ifndef N
-#define N 5  // actual size of the array
+#define N 7  // actual size of the array
 #endif
 
 void swap(int& lha, int&rha){
@@ -11,7 +11,7 @@ void swap(int& lha, int&rha){
 }
 
 void shift(int (&array)[N]){
-    for (int i = 1;i<N;i++){
+    for (int i = N-1;i!=0;i--){
         swap(array[i-1], array[i]);
     }
 }
