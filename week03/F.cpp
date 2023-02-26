@@ -1,7 +1,7 @@
 #include <iostream>
 
 #ifndef N
-#define N 2  // actual size of the array
+#define N 5
 #endif
 using namespace std;
 
@@ -9,9 +9,9 @@ using namespace std;
 int binsearch(int (&array)[N]){
     int left = 0, right = N;
     while (left < right){
-        int m = (left + right)/2;
-        if (array[m] == 0) left = m + 1;
-        else right = m;
+        int m = (left + right - 1)/2 + 1;
+        if (array[m] == 0) left = m;
+        else right = m - 1;
     }
     return left;
 }

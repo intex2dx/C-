@@ -29,7 +29,7 @@ int main(){
         }
     }
     cout << c[0];
-    for (int i = 1;i < 2 * N; i++){
+    for (int i = 1; i < 2 * N; i++){
         cout << ' ' << c[i];
     }
     cout << endl;
