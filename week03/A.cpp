@@ -15,7 +15,7 @@ int main() {
     int a[N] = {0};
     for (int i=0;i<N;i++){   
         cin >> a[i];}
-    for (int i=0; i<=N/2; i++){
+    for (int i=0; i<N/2; i++){
         swap(a[i], a[N-i-1]);
     }
     cout << a[0];
