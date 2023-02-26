@@ -4,25 +4,23 @@
 using namespace std;
 
 #ifndef N
-#define N 2
+#define N 1
 #endif
 
 #ifndef M
-#define M 2
+#define M 3
 #endif
 
+void swap(int &rha, int &lha){
+    int tmp = lha;
+    lha = rha;
+    rha = tmp;
+}
 
 void sort2d(int (&array)[N][M]){
-    int new_array[N*M];
-    for (int i = 0; i < N; i++){
-        for (int j = 0; j < M; j++){
-            new_array[i*M + j] = array[i][j];
-        }
-    }
-    sort(new_array, new_array + M * N);
-    for (int i = 0; i < N; i++){
-        for (int j = 0; j < M; j++){
-            array[i][j] = new_array[i*M + j];
+    for (int k1 = 0; k1 < N*M; k1++){
+        for (int k2 = 0; k2 < N*M - k1 - 1; k2++){
+            if (array[k2/M][k2%M] > array[(k2+1)/M][(k2+1)%M]) swap(array[k2/M][k2%M], array[(k2+1)/M][(k2+1)%M]);
         }
     }
     
