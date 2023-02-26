@@ -1,7 +1,7 @@
 #include <iostream>
 
 #ifndef N
-#define N 3  // actual size of the array
+#define N 1
 #endif
 
 using namespace std;
@@ -15,13 +15,21 @@ int main(){
         cin >> b[i];
         }
     
-    int c[N] = {0};
-    for (int i=0; i<N; i++){
-        c[2*i] = max(a[i], b[i]);
-        c[2*i+1] = min(a[i], b[i]);
+    int c[2*N] = {0};
+    int cnt_a = 0;
+    int cnt_b = 0;
+    for (int i = 0; i < 2*N; i++){
+        if (a[cnt_a] <= b[cnt_b]) {
+            c[i] = a[cnt_a];
+            cnt_a++;
+        }
+        else {
+            c[i] = b[cnt_b];
+            cnt_b++;
+        }
     }
     cout << c[0];
-    for (int i =0;i<2*N; i++){
+    for (int i = 1;i < 2 * N; i++){
         cout << ' ' << c[i];
     }
     cout << endl;
