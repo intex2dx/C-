@@ -3,10 +3,13 @@
 #include <stdlib.h> 
 #include <time.h>
 #include <random>
+#include <iostream>
 
 #ifndef N_const
 #define N_const 1000100
 #endif
+
+// бинарный поиск средний случай
 
 int linear_search(int (&array)[N_const], int N, int elem){
     int ans = 0;
@@ -18,10 +21,10 @@ int linear_search(int (&array)[N_const], int N, int elem){
 }
 
 int randomizer(int left, int right){
-    srand(time(NULL));
-    int num = left + rand()%(right - left + 1);
+    int num = left + ((rand() << 15) + rand())%(right - left + 1);
     return num;
 }
+
 int binary_search(int (&array)[N_const], int N, int elem){
     int left = 0;
     int right = N;
@@ -37,6 +40,7 @@ int binary_search(int (&array)[N_const], int N, int elem){
 int a[N_const] = {0};
 
 int main(){
+    srand(time(NULL));
     std::ofstream Fout;
     Fout.open("output3.txt");
     Fout.close();
@@ -55,5 +59,7 @@ int main(){
         Fout << N << ' ' << time_span.count() << std::endl;
         Fout.close();
     }
+    
+
     return 0;
 }

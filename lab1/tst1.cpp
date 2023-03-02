@@ -8,6 +8,8 @@
 #define N_const 5000
 #endif
 
+// вторая часть тупой поиск
+
 bool search(int (&array)[N_const], int N, int summ){
     int left=0, right=N-1;
     while (left != right){
@@ -29,14 +31,14 @@ bool stupid_search(int (&array)[N_const], int N, int summ){
 }
 
 int randomizer(int left, int right){
-    srand(time(NULL));
-    int num = left + rand()%(right - left + 1);
+    int num = left + ((rand() << 15) + rand())%(right - left + 1);
     return num;
 }
 
 int a[N_const] = {0};
 
 int main(){
+    srand(time(NULL));
     std::ofstream Fout;
     Fout.open("otpt1.txt");
     Fout.close();

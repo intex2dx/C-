@@ -8,6 +8,8 @@
 #define N_const 1000100
 #endif
 
+// бинарный поиск элемента, которого нет
+
 int linear_search(int (&array)[N_const], int N, int elem){
     int ans = 0;
     while (array[ans] != elem & ans < N){
@@ -18,8 +20,7 @@ int linear_search(int (&array)[N_const], int N, int elem){
 }
 
 int randomizer(int left, int right){
-    srand(time(NULL));
-    int num = left + rand()%(right - left + 1);
+    int num = left + ((rand() << 15) + rand())%(right - left + 1);
     return num;
 }
 int binary_search(int (&array)[N_const], int N, int elem){
@@ -34,13 +35,14 @@ int binary_search(int (&array)[N_const], int N, int elem){
     else return -1;
 }
 
-
+int a[N_const] = {0};
 
 int main(){
+    srand(time(NULL));
     std::ofstream Fout;
     Fout.open("output4.txt");
     Fout.close();
-    int a[N_const] = {0};
+    
     for (int N = 100; N <= N_const; N += 50000) {
         a[0] = randomizer(0, N);
         for (int i = 1; i < N; i++){

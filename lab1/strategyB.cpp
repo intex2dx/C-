@@ -18,8 +18,7 @@ void swap(int &lha, int &rha){
 }
 
 int randomizer(int left, int right){
-    srand(time(NULL));
-    int num = left + rand()%(right - left + 1);
+    int num = left + ((rand() << 15) + rand())%(right - left + 1);
     return num;
 }
 bool linear_search(int (&array)[N_const], int N, int elem){
@@ -37,6 +36,7 @@ bool linear_search(int (&array)[N_const], int N, int elem){
 int a[N_const] = {0};
 
 int main(){
+    srand(time(NULL));
     std::ofstream Fout;
     Fout.open("outB1.txt");
     Fout.close();
