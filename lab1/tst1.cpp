@@ -14,8 +14,8 @@ bool search(int (&array)[N_const], int N, int summ){
     int left=0, right=N-1;
     while (left != right){
         if (array[left] + array[right] == summ) return true;
-        else if (array[left] + array[right] > summ) right -= 1;
-        else left += 1;
+        else if (array[left] + array[right] > summ) right--;
+        else left++;
     }
     return false;
 

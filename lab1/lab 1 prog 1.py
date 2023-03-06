@@ -33,5 +33,6 @@ for i in range(4):
         N_s_full = np.linspace(1, 1000100, 100)
         ax_i.plot(N_s_full, 0.725*np.log(N_s_full), ls = '--',color="black", linewidth = 1, label=r"$t = 0.752 \cdot \ln{N}$")
         ax_i.legend()
+    plt.tight_layout()
 
 plt.show()

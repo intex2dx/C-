@@ -43,7 +43,8 @@ int main(){
     for (int N = 5000; N <= N_const; N += 5000) {
         a[0] = randomizer(0, N);
         for (int i = 1; i < N; i++){
-                a[i] = randomizer(0, N);}
+            a[i] = randomizer(0, N);
+        }
         auto begin = std::chrono::steady_clock::now();
         for (unsigned cnt = 100000; cnt!= 0; --cnt){
             int elem = cnt%N;
