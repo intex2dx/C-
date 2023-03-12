@@ -2,7 +2,7 @@
 
 
 #ifndef N
-#define N 3
+#define N 2
 #endif
 
 using namespace std;
