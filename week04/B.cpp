@@ -37,4 +37,5 @@ int main(){
     qsort(a, 0, N-1);
     cout << a[0];
     for (int i = 1; i < N; i++) cout << ' ' << a[i];
+    cout << endl;
 }
