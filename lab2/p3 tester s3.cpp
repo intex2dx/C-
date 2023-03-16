@@ -89,9 +89,6 @@ int main(){
         for (int i = 0; i < N; i++){
             a[i] = randomizer(0, N);
         }
-        for (int i = 0; i < N; i++) cout << a[i] << ' ';
-        cout << endl;
-        cout << endl;
         auto begin = std::chrono::steady_clock::now();
         for (unsigned cnt = 100000; cnt!= 0; --cnt){
             shell_sort(a, N);
@@ -104,9 +101,6 @@ int main(){
         Fout.open("part 3 s3 swaps.txt", std::ios_base::app);
         Fout << N << ' ' << n_swaps << std::endl;
         Fout.close();
-        for (int i = 0; i < N; i++) cout << a[i] << ' ';
-        cout << endl;
-        cout << endl;
     }
     return 0;
 }
