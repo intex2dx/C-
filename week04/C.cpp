@@ -47,5 +47,5 @@ int main(){
     for (int i = 0; i < N; i++) cin >> a[i];
     cheops_sort(a);
     cout << a[0];
-    for (int i = 1; i < N; i++) cout << ' ' << a[i];
+    for (int i = 1; i < N; i++) cout << ' ' << a[i]; 
 }
