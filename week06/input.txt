@@ -1,0 +1,1 @@
+6 U 238 92 Cd 112 48 Cr 52 24 Ag 108 47 Th 234 90 In 112 49 7 U alpha Cd beta+ Cd beta- In beta+ Cd beta+ Th alpha U beta-
