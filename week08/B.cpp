@@ -73,13 +73,11 @@ Node *find(Node *head_ref, int key) {
     return current;
 }
 
-
-
 void remove_key(Node *&head_ref, int key) {
     if (head_ref == nullptr) return;
     if (head_ref->key == key) {
         Node *new_head = head_ref->next;
-        delete head_ref;    
+        delete head_ref;
         head_ref = new_head;
         return;
     }
@@ -95,13 +93,56 @@ void remove_key(Node *&head_ref, int key) {
     }
 }
 
-Node* push(Node* head_ref, int key){
-    Node* new_head = new Node;
-    new_head->key = key;
-    new_head->next = head_ref;
-    return new_head;    
+Node *read_list(Node *head) {
+    int new_key;
+    std::cin >> new_key;
+    if (new_key == 0) return head;
+    head      = new Node;
+    head->key = new_key;
+    std::cin >> new_key;
+    Node *current = head;
+    while (new_key != 0) {
+        current->next      = new Node;
+        current->next->key = new_key;
+        current            = current->next;
+        std::cin >> new_key;
+    }
+    return head;
+}
+
+Node *reverse(Node *head) {
+    if (head == nullptr) return nullptr;
+    Node *current      = head;
+    Node *current_next = head->next;
+    head->next         = nullptr;
+    while (current_next != nullptr) {
+        Node *new_current_next = current_next->next;
+        current_next->next     = current;
+        current                = current_next;
+        current_next           = new_current_next;
+    }
+    return current;
+}
+
+
+
+int find_middle(const Node *head){
+    int k = 1;
+    int middle = 0;
+    Node* current_next = head->next;
+    while (current_next != nullptr) {
+        if (k%2 == 0) middle++;
+        current_next = current_next->next;
+        k+=1;
+    }
+    if (k%2 == 0) middle++;
+    return middle;
 }
 
 int main(){
-    
+    Node *head = nullptr;
+    head     = read_list(head);
+    std::cout << find_middle(head);
+    destroy_list(head);
+    return 0;
 }

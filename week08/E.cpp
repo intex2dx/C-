@@ -7,11 +7,6 @@ struct Node
 };
 
 void push_front(Node *&head_ref, int new_key) {
-    if (head_ref == nullptr) {
-        head_ref      = new Node;
-        head_ref->key = new_key;
-        return;
-    }
     Node *new_head = new Node;
     new_head->key  = new_key;
     new_head->next = head_ref;
@@ -73,13 +68,11 @@ Node *find(Node *head_ref, int key) {
     return current;
 }
 
-
-
 void remove_key(Node *&head_ref, int key) {
     if (head_ref == nullptr) return;
     if (head_ref->key == key) {
         Node *new_head = head_ref->next;
-        delete head_ref;    
+        delete head_ref;
         head_ref = new_head;
         return;
     }
@@ -95,13 +88,52 @@ void remove_key(Node *&head_ref, int key) {
     }
 }
 
-Node* push(Node* head_ref, int key){
-    Node* new_head = new Node;
-    new_head->key = key;
-    new_head->next = head_ref;
-    return new_head;    
-}
-
 int main(){
-    
-}
+    char c;
+    Node* head_ref = nullptr;
+    bool t = true;
+    for (c = std::getchar(); (c != '\n') & (c != '\0'); c = std::getchar()) {
+        if (c == '(') {
+            push_front(head_ref, 0);}
+
+        if (c == '<') push_front(head_ref, 1);
+        if (c == '[') push_front(head_ref, 2);
+        if (c == '{') push_front(head_ref, 3);
+        if (c == ')') {
+            if ((head_ref == nullptr) | (head_ref->key != 0)) {
+                t = false;
+                break;
+            }
+            head_ref = head_ref->next;
+            
+        }
+        if (c == '>') {
+            if ((head_ref == nullptr) | (head_ref->key != 1)) {
+                t = false;
+                break;
+            }
+            head_ref = head_ref->next;
+        }
+        if (c == ']') {
+            if ((head_ref == nullptr) | (head_ref->key != 2)) {
+                t = false;
+                break;
+            }
+            head_ref = head_ref->next;
+        }
+        if (c == '}'){
+            if ((head_ref == nullptr) | (head_ref->key != 3)) {
+                t = false;
+                break;
+            }
+            head_ref = head_ref->next;
+        }
+    }
+    if ((t) & (head_ref == nullptr))
+        std::cout << "YES";
+    else
+        std::cout << "NO";
+    std::cout << std::endl;
+    destroy_list(head_ref);
+    }
+
